@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 export function Signup(){
 
     let [username, setUsername] = useState("");

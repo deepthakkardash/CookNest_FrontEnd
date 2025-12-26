@@ -1,3 +1,4 @@
+import { Home } from "./Components/Home"
 import { Login } from "./Components/Login"
 import { Signup } from "./Components/Signup"
 
@@ -9,7 +10,8 @@ function App() {
       {/* <p className="display-1">Hello</p> */}
       {/* <Login /> */}
 
-      <Signup />
+      {/* <Signup /> */}
+      <Home />
     </>
   )
 }
