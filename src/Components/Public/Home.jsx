@@ -6,7 +6,11 @@ export function Home() {
     let [dish,setDish] = useState("");
     
     useEffect(() => {
-        axios.get("https://api.example.com/featured-dish",{withCredentials: true}).then((response) => {
+        
+        console.log("hello");
+
+
+        axios.get("https://localhost:8080/menu/categories",{withCredentials: true}).then((response) => {
             setDish(response.data);
             console.log(dish);
             

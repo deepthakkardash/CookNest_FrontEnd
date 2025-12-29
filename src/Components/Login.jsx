@@ -1,3 +1,4 @@
+import axios from "axios";
 import { use, useState } from "react";
 
 export function Login() 
@@ -5,6 +6,25 @@ export function Login()
 
     let [email, setEmail] = useState("");
     let [password, setPassword] = useState("");
+
+    function Login(e)
+    {
+        e.preventDefault();
+        console.log("Login button clicked");
+        console.log("Email:", email);
+        console.log("Password:", password);
+
+        axios.post("http://localhost:8080/cooknest/login",
+        {
+            "username": email,
+            "password": password
+        }).then((response) => {
+            console.log("Login successful:", response.data);
+        }).catch((error) => {
+            console.error("Error during login:", error);
+        });
+    }
+
 
     return (
         <div className="border d-flex justify-content-center align-items-center vh-100 bg-light ">
@@ -14,7 +34,7 @@ export function Login()
 
                     <input type="text" className="form-control my-3" placeholder="Username" value={email} onChange={(e)=>setEmail(e.target.value)}/>
                     <input type="password" className="form-control my-3" placeholder="Password"  value={password} onChange={(e)=>setPassword(e.target.value)}/>
-                    <button className="btn btn-outline-dark px-5">Login</button>
+                    <button className="btn btn-outline-dark px-5" onClick={(e)=>Login(e)}>Login</button>
 
                     <div className="mt-3 d-flex justify-content-between w-100">
                         <a href="#" className="text-decoration-none">Forgot Password?</a>
